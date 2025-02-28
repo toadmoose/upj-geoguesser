@@ -6,6 +6,10 @@ import L from 'leaflet';
 import './App.css';
 
 const locationImage1 = 'images/location1.jpg';
+const locationImage2 = 'images/location2.jpg';
+const locationImage3 = 'images/location3.jpg';
+const locationImage4 = 'images/location4.jpg';
+const locationImage5 = 'images/location5.jpg';
 
 // Create custom icons for actual location and guess
 const actualLocationIcon = new L.Icon({
@@ -40,8 +44,33 @@ const campusLocations = [
     id: 1,
     image: locationImage1,
     position: [40.2661444, -78.8320306], 
-    name: 'Bench Area'
+    name: 'Heather/Foxfire Bench Area'
   },
+  {
+    id: 2,
+    image: locationImage2,
+    position: [40.2648194, -78.8336],
+    name: 'Basketball Court Bench Area'
+  },
+  {
+    id: 3,
+    image: locationImage3,
+    position: [40.2667778, -78.8335194],
+    name: 'Upstairs Owen Library Water Fountain'
+  },
+  {
+    id: 4,
+    image: locationImage4,
+    position: [40.2678194, -78.8346333],
+    name: 'Krebs Hall Back Walkway'
+  },
+  {
+    id: 5,
+    image: locationImage5,
+    position: [40.2677083, -78.8341528],
+    name: 'PPAC/ENS Walkway'
+  },
+  
 ];
 
 // Sample leaderboard data - in a real app, this would be stored in a database
