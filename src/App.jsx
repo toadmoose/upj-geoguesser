@@ -233,7 +233,7 @@ function App() {
   const calculateScore = (distanceInMeters) => {
     // Simple scoring: max 1000 points, lose points based on distance
     const maxScore = 1000;
-    const pointsLostPerMeter = 5;
+    const pointsLostPerMeter = 0.5;
     const calculatedScore = Math.max(0, maxScore - (distanceInMeters * pointsLostPerMeter));
     return Math.round(calculatedScore);
   };
