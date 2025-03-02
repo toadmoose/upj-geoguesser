@@ -70,7 +70,6 @@ const campusLocations = [
     position: [40.2677083, -78.8341528],
     name: 'PPAC/ENS Walkway'
   },
-  
 ];
 
 // Sample leaderboard data - in a real app, this would be stored in a database
@@ -108,6 +107,7 @@ function App() {
   const [usedEmails, setUsedEmails] = useState([]);
   const [timeLeft, setTimeLeft] = useState(ROUND_TIME_LIMIT);
   const [timerActive, setTimerActive] = useState(false);
+  const [usedLocationIds, setUsedLocationIds] = useState([]);
   const timerRef = useRef(null);
   
   // Load leaderboard and used emails from localStorage on component mount
@@ -201,10 +201,22 @@ function App() {
     setTimerActive(true);
   };
 
-  // Load a random location
+  // Load a unique location that hasn't been used yet in this game
   const loadRandomLocation = () => {
-    const randomIndex = Math.floor(Math.random() * campusLocations.length);
-    setCurrentLocation(campusLocations[randomIndex]);
+    // Filter out locations that have already been used this game
+    const availableLocations = campusLocations.filter(
+      location => !usedLocationIds.includes(location.id)
+    );
+    
+    // Choose a random location from available ones
+    const randomIndex = Math.floor(Math.random() * availableLocations.length);
+    const newLocation = availableLocations[randomIndex];
+    
+    // Add this location's ID to the used locations
+    setUsedLocationIds(prevUsed => [...prevUsed, newLocation.id]);
+    
+    // Set the current location
+    setCurrentLocation(newLocation);
     setUserGuess(null);
     setDistance(null);
     setGameState('guessing');
@@ -215,6 +227,7 @@ function App() {
   const startGame = () => {
     setRound(1);
     setTotalScore(0);
+    setUsedLocationIds([]); // Reset used locations when starting a new game
     loadRandomLocation();
   };
 
