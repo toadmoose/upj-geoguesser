@@ -1,6 +1,6 @@
 **UPJ GeoGuesser**
-A campus-based geolocation guessing game for the University of Pittsburgh at Johnstown. Test how well you know your campus by identifying locations from photographs!
-Show Image
+
+A campus-based geolocation guessing game for the University of Pittsburgh at Johnstown. 
 
 **Features**
 
@@ -33,30 +33,6 @@ Players have 60 seconds to identify each location on the map
 Scoring is based on distance: 1000 points maximum, minus 0.5 points per meter away
 No location repeats within a single game
 Final scores are saved to a leaderboard (persisted via localStorage)
-
-**Getting Started**
-Prerequisites
-
-Node.js (v14 or higher)
-npm or yarn
-
-**Installation**
-
-Clone the repository
-bashgit clone https://github.com/yourusername/upj-geoguesser.git
-cd upj-geoguesser
-
-Install dependencies
-bashnpm install
-# or
-yarn
-
-Run the development server
-bashnpm run dev
-# or
-yarn dev
-
-Open your browser and navigate to http://localhost:5173
 
 **Future Improvements**
 
